@@ -1,15 +1,23 @@
 package com.github.devotedmc.hiddenore.util;
 
+import com.destroystokyo.paper.ClientOption;
+import com.destroystokyo.paper.Title;
+import com.destroystokyo.paper.block.TargetBlockInfo;
+import com.destroystokyo.paper.block.TargetBlockInfo.FluidMode;
+import com.destroystokyo.paper.entity.TargetEntityInfo;
+import com.destroystokyo.paper.profile.PlayerProfile;
 import java.net.InetSocketAddress;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
-
+import net.kyori.adventure.text.Component;
+import net.md_5.bungee.api.chat.BaseComponent;
 import org.bukkit.Chunk;
 import org.bukkit.DyeColor;
 import org.bukkit.Effect;
@@ -79,17 +87,11 @@ import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.util.BoundingBox;
 import org.bukkit.util.RayTraceResult;
 import org.bukkit.util.Vector;
-
-import com.destroystokyo.paper.ClientOption;
-import com.destroystokyo.paper.Title;
-import com.destroystokyo.paper.block.TargetBlockInfo;
-import com.destroystokyo.paper.block.TargetBlockInfo.FluidMode;
-import com.destroystokyo.paper.entity.TargetEntityInfo;
-import com.destroystokyo.paper.profile.PlayerProfile;
-
-import net.md_5.bungee.api.chat.BaseComponent;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 public class FakePlayer implements Player {
+
 	private final ItemStack inHand;
 	private final Location location;
 
@@ -218,6 +220,11 @@ public class FakePlayer implements Player {
 
 			@Override
 			public void clear() {
+			}
+
+			@Override
+			public int close() {
+				return 0;
 			}
 
 			@Override
@@ -684,6 +691,11 @@ public class FakePlayer implements Player {
 	}
 
 	@Override
+	public void registerAttribute(@NotNull Attribute attribute) {
+
+	}
+
+	@Override
 	public Location getLocation() {
 		return location;
 	}
@@ -879,6 +891,16 @@ public class FakePlayer implements Player {
 
 	@Override
 	public void setCustomName(String name) {
+
+	}
+
+	@Override
+	public @Nullable Component customName() {
+		return null;
+	}
+
+	@Override
+	public void customName(@Nullable Component component) {
 
 	}
 
@@ -1169,6 +1191,16 @@ public class FakePlayer implements Player {
 	}
 
 	@Override
+	public @NotNull Component displayName() {
+		return null;
+	}
+
+	@Override
+	public void displayName(@Nullable Component component) {
+
+	}
+
+	@Override
 	public String getDisplayName() {
 		return "Spoof";
 	}
@@ -1176,6 +1208,26 @@ public class FakePlayer implements Player {
 	@Override
 	public void setDisplayName(String name) {
 
+	}
+
+	@Override
+	public void playerListName(@Nullable Component component) {
+
+	}
+
+	@Override
+	public @Nullable Component playerListName() {
+		return null;
+	}
+
+	@Override
+	public @Nullable Component playerListHeader() {
+		return null;
+	}
+
+	@Override
+	public @Nullable Component playerListFooter() {
+		return null;
 	}
 
 	@Override
@@ -1212,6 +1264,11 @@ public class FakePlayer implements Player {
 
 	@Override
 	public void kickPlayer(String message) {
+
+	}
+
+	@Override
+	public void kick(@Nullable Component component) {
 
 	}
 
@@ -1308,6 +1365,16 @@ public class FakePlayer implements Player {
 	public boolean sendChunkChange(Location loc, int sx, int sy, int sz, byte[] data) {
 
 		return false;
+	}
+
+	@Override
+	public void sendSignChange(@NotNull Location location, @Nullable List<Component> list) throws IllegalArgumentException {
+
+	}
+
+	@Override
+	public void sendSignChange(@NotNull Location location, @Nullable List<Component> list, @NotNull DyeColor dyeColor) throws IllegalArgumentException {
+
 	}
 
 	/*@Override
@@ -1541,6 +1608,36 @@ public class FakePlayer implements Player {
 
 	@Override
 	public void setFoodLevel(int value) {
+
+	}
+
+	@Override
+	public int getSaturatedRegenRate() {
+		return 0;
+	}
+
+	@Override
+	public void setSaturatedRegenRate(int i) {
+
+	}
+
+	@Override
+	public int getUnsaturatedRegenRate() {
+		return 0;
+	}
+
+	@Override
+	public void setUnsaturatedRegenRate(int i) {
+
+	}
+
+	@Override
+	public int getStarvationRate() {
+		return 0;
+	}
+
+	@Override
+	public void setStarvationRate(int i) {
 
 	}
 
@@ -1835,6 +1932,11 @@ public class FakePlayer implements Player {
 	}
 
 	@Override
+	public boolean isDeeplySleeping() {
+		return false;
+	}
+
+	@Override
 	public void setShoulderEntityLeft(Entity arg0) {
 		
 	}
@@ -1957,6 +2059,11 @@ public class FakePlayer implements Player {
 	@Override
 	public void sendBlockChange(Location arg0, BlockData arg1) {
 		
+	}
+
+	@Override
+	public void sendBlockDamage(@NotNull Location location, float v) {
+
 	}
 
 	@Override
@@ -2128,6 +2235,16 @@ public class FakePlayer implements Player {
 	@Override
 	public int getClientViewDistance() {
 		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public @NotNull Locale locale() {
+		return null;
+	}
+
+	@Override
+	public int getPing() {
 		return 0;
 	}
 
@@ -2542,6 +2659,16 @@ public class FakePlayer implements Player {
 	@Override
 	public Firework boostElytra(ItemStack arg0) {
 		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void sendOpLevel(byte b) {
+
+	}
+
+	@Override
+	public @NotNull Set<Player> getTrackedPlayers() {
 		return null;
 	}
 
